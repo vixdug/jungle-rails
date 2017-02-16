@@ -1,0 +1,8 @@
+<p>Hi,
+
+Thanks for your order <%= @order.email %>!</p>
+
+<% @order.line_items.each do |item| %>
+<%= render 'item', product_id: item.product_id, quantity: item.quantity %>
+  <% end %>
+  <tr><td colspan="5">Total: <%= @order.total %> </td> </tr>
