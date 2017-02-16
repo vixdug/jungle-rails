@@ -12,6 +12,7 @@ def create
     session[:user_id] = user.id
     redirect_to '/'
   else
+    flash[:danger]= "nope"
   # If user's login doesn't work, send them back to the login form.
     redirect_to '/login'
   end

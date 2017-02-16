@@ -4,10 +4,27 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+
+
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <tbody>
+    <p> <%= @order.email %> </p>
+    <% @order.line_items.each do |item| %>
+    <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
+    <br>
+    <% end %>
+    <tr><td colspan="5">Total: <%= @order.total %> </td> </tr>
   </div>
-
+</tbody>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+
+
+
+<!-- The items in the order and:
+Their image, name and description
+Their respective quantities and line item totals
+The final amount for the order
+The email that was used -->

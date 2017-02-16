@@ -11,6 +11,16 @@
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
+    <div class="container flash-container">
+    <% flash.each do |type, msg| %>
+          <%= content_tag :div, class: "alert alert-#{type}" do %>
+            <%= msg %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <% end %>
+          <% end %>
+        </div>
     <%= yield %>
   </main>
 
