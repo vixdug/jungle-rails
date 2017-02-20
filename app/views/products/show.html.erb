@@ -24,7 +24,69 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
-    </div>
+
+</div>
+
+<div class="col-sm-7" id="create_review">
+     <h4> Create a review </h4>
+     <%= form_for [@product, @review] do |form| %>
+
+         <% if form.object.errors.any? %>
+           <div class="alert alert-danger">
+             <strong>The following errors prevented saving:</strong>
+             <ul>
+               <% form.object.errors.full_messages.each do |error| %>
+                 <li><%= error %></li>
+               <% end %>
+             </ul>
+           </div>
+         <% end %>
+
+         <div class="form-group">
+           <%= form.label :description %>
+           <%= form.text_field :description, class: 'form-control review_description' %>
+         </div>
+
+         <div class="form-group">
+           <%= form.label :rating %> <br>
+           <%= form.select :rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), class: 'form-control' %>
+           <%= form.hidden_field :product_id, :value => @product.id %>
+         </div>
+       <%= form.submit 'Create Review', class: 'btn btn-primary submit_review' %>
+     <% end %>
+   </div>
+
+<div class="col-sm-12" id="reviews">
+    <% if @product.reviews.length != 0 %>
+    <h2>User Reviews</h2>
+
+
+  <div class="panel panel-default">
+
+    <% @reviews.each do |review| %>
+
+      <div class="panel-heading">
+        <% review.rating.times do %>
+          <%= fa_icon('star', class: 'star') %>
+        <% end %>
+
+        <% if review.rating < 5 %>
+          <% (5 - review.rating).times do %>
+            <%= fa_icon('star-o', class: 'star') %>
+          <% end %>
+        <% end %>
+
+      </div>
+
+      <div class="panel-body">
+        <p> <%= review.description %> </p>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+</div>
+
 
   </article>
 
