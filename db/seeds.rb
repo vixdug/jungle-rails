@@ -36,7 +36,7 @@ puts "Re-creating Products ..."
 Product.destroy_all
 
 cat1.products.create!({
-  name:  'Men\'s Classy shirt',
+  name:  'Aloe Vera',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
   quantity: 0,
@@ -44,7 +44,7 @@ cat1.products.create!({
 })
 
 cat2.products.create!({
-  name:  'Women\'s Zebra pants',
+  name:  'Green Birch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
   quantity: 0,
@@ -52,7 +52,7 @@ cat2.products.create!({
 })
 
 cat1.products.create!({
-  name:  'Hipster Hat',
+  name:  'Monstera',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
   quantity: 4,
@@ -60,7 +60,7 @@ cat1.products.create!({
 })
 
 cat3.products.create!({
-  name:  'Hipster Socks',
+  name:  'Bonsai',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
   quantity: 8,
@@ -68,7 +68,7 @@ cat3.products.create!({
 })
 
 cat1.products.create!({
-  name:  'Russian Spy Shoes',
+  name:  'Snake Stripe Plant',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
   quantity: 8,
@@ -76,7 +76,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
-  name:  'Human Feet Shoes',
+  name:  'Cactus',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
   quantity: 82,

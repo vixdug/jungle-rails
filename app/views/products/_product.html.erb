@@ -7,7 +7,23 @@
   </header>
   <p class="description">
     <%= product.description %>
+
   </p>
+  <p class="reviews">
+   <% unless product.average_review.nil? %>
+
+      <% product.average_review.to_i.times do %>
+        <%= fa_icon('star', class: 'star') %>
+      <% end %>
+
+      <% if product.average_review < 5 %>
+        <% (5 - product.average_review.to_i).times do %>
+          <%= fa_icon('star-o', class: 'star') %>
+        <% end %>
+      <% end %>
+      <% end %>
+
+    </p>
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
@@ -24,4 +40,7 @@
   <% if product.quantity == 0 %>
   <aside class="sold-out"> Sold Out  </aside>
   <% end %>
+
+
+
 </article>

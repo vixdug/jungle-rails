@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      flash[:danger]= "email is already taken"
       redirect_to '/signup'
     end
   end

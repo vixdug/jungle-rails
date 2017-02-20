@@ -3,6 +3,6 @@ class OrderMailer < ActionMailer::Base
 
   def order_email(order)
     @order = order
-    mail(to: @order.email , subject: @order.id )
+    mail(to: @order.email , subject: "Order id: #{@order.id}" )
   end
 end

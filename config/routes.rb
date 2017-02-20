@@ -18,7 +18,7 @@ end
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
-    resources :categories, only: [:new, :show, :index]
+    resources :categories, only: [:new, :show, :index, :create]
   end
 
   get '/login' => 'sessions#new'
